@@ -25,6 +25,7 @@ public class Application {
 	public static void main(String[] args) {
 		try {
 			LOGGER.info("Empieza aplicacion");
+			validarParametrosEntrada(args);
 			int cantidadDeHilos = Integer.parseInt(args[0]);
 			int cantidadDeEmpleados = Integer.parseInt(args[1]);
 			int cantidadDeLlamadas = Integer.parseInt(args[2]);
@@ -41,6 +42,32 @@ public class Application {
 			LOGGER.error(e.getMessage(), e);
 		}
 		LOGGER.info("Termina aplicacion");
+
+	}
+
+	/**
+	 * 
+	 * @param args
+	 */
+	private static void validarParametrosEntrada(String[] args) {
+		if (args.length != 3) {
+			LOGGER.error("faltan parametros de entrada");
+			System.exit(0);
+		}
+		try {
+			int cantidadDeHilos = Integer.parseInt(args[0]);
+			int cantidadDeEmpleados = Integer.parseInt(args[1]);
+			int cantidadDeLlamadas = Integer.parseInt(args[2]);
+
+			if (!(cantidadDeHilos > 0) || !(cantidadDeEmpleados > 0) || !(cantidadDeLlamadas > 0)) {
+				LOGGER.error("Los parametros de entrada tienen q ser mayores a 0");
+				System.exit(0);
+
+			}
+		} catch (NumberFormatException e) {
+			LOGGER.error("Los parametros de entrada tienen q ser numeros");
+			System.exit(0);
+		}
 
 	}
 
