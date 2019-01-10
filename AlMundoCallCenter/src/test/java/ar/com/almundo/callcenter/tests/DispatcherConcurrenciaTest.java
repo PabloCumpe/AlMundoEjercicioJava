@@ -28,8 +28,6 @@ public class DispatcherConcurrenciaTest {
 	/** variable log4j */
 	private final static Logger LOGGER = Logger.getLogger(DispatcherConcurrenciaTest.class);
 
-
-
 	/**
 	 * Se crean 10 hilos, 10 empleados, 10 llamadas
 	 * 
@@ -41,7 +39,9 @@ public class DispatcherConcurrenciaTest {
 		try {
 			LOGGER.info("*****************************testCon10Hilos*****************************");
 			Dispatcher dispatcher = new Dispatcher();
+
 			Queue<Empleado> empleados = obtenerColaEmpleados();
+			int cantidadDeEmpleados = empleados.size();
 
 			for (Empleado empleado : empleados) {
 				dispatcher.getListaEmpleadosDisponibles().add(empleado);
@@ -84,6 +84,11 @@ public class DispatcherConcurrenciaTest {
 			c8.join();
 			c9.join();
 			c10.join();
+            //se verifica que no quedaron llamadas sin atender
+			Assert.assertTrue(dispatcher.getListaLlamadas().isEmpty());
+			// verifica que  hayan quedado la misma cantidad de empleados que los que se inicializaron
+			Assert.assertEquals(dispatcher.getListaEmpleadosDisponibles().size(), cantidadDeEmpleados);
+
 		} catch (InterruptedException e) {
 			LOGGER.error(e.getMessage(), e);
 			Assert.fail("error en los threads");
@@ -140,7 +145,7 @@ public class DispatcherConcurrenciaTest {
 
 			c1.join();
 			c2.join();
-			
+
 			Assert.assertTrue(dispatcher.getListaLlamadas().isEmpty());
 
 		} catch (InterruptedException e) {
