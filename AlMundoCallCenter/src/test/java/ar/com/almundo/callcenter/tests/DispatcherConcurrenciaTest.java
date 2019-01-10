@@ -103,6 +103,8 @@ public class DispatcherConcurrenciaTest {
 	 * Una vez esperado un tiempo (5 seg), se agregan dos llamadas, el metodo
 	 * '.take' se libera y se atienden las llamadas , una por cada hilo
 	 * 
+	 * Se verifica al final que no hayan quedado llamadas sin ser atendidas
+	 * 
 	 * @throws InterruptedException
 	 */
 	@Test
@@ -138,6 +140,8 @@ public class DispatcherConcurrenciaTest {
 
 			c1.join();
 			c2.join();
+			
+			Assert.assertTrue(dispatcher.getListaLlamadas().isEmpty());
 
 		} catch (InterruptedException e) {
 			LOGGER.error(e.getMessage(), e);
