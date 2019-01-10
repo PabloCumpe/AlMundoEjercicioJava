@@ -3,16 +3,19 @@
 Consignas ejercicio
 
 Ejercicio de Java
+
 El objetivo de este ejercicio es conocer cómo los candidatos a entrar a
 almundo.com usan herramientas básicas de Java y diseñan soluciones
 orientadas a objetos.
 
 Forma de entrega
+
 La solución tiene que estar pusheada en un repo git. La url del mismo tiene
 que ser enviada por email. Como alternativa a git, la solución puede ser
 adjuntada (.tar, .zip, etc).
 
 Consigna
+
 Existe un call center donde hay 3 tipos de empleados: operador, supervisor
 y director. El proceso de la atención de una llamada telefónica en primera
 instancia debe ser atendida por un operador, si no hay ninguno libre debe
