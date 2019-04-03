@@ -5,7 +5,6 @@ import org.junit.Assert;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
