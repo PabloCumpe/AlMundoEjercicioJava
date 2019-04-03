@@ -19,7 +19,7 @@ import ar.com.almundo.callcenter.thread.CustomRunnable;
 import ar.com.almundo.callcenter.utils.GeneradorLlamadas;
 
 /**
- * @author Pablo_Cumpe
+ * @author Pablo_Cumpe2
  *
  */
 public class DispatcherConcurrenciaTest {
